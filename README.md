@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ServiceSphere — Enterprise IT Service Management Platform
 
 ServiceSphere is a production-grade Enterprise IT Service Management (ITSM) web application designed for corporate IT environments to track incident tickets, manage company assets across their lifecycle, enforce warranty and maintenance compliance, and ensure data integrity across departments.
@@ -150,3 +151,7 @@ mvn test "-Dtest=AssetServiceTest,TicketAssetValidationServiceTest"
    ```
 3. Open `http://localhost:5173` in your browser.
 
+=======
+# ServiceSphere
+IT Service Management Platform built with React, Spring Boot and MySQL
+>>>>>>> e333ba5473ace4a4c212372553b97347f1d56afe
