@@ -151,23 +151,3 @@ mvn test "-Dtest=AssetServiceTest,TicketAssetValidationServiceTest"
 3. Open `http://localhost:5173` in your browser.
 
 ---
-
-## Evaluation & Viva Guide (Student 3)
-
-### Q1: How do you prevent two active assignments for the same asset?
-**Answer**:
-1. Relational schema constraint: `asset_assignments.returned_at` is `NULL` for an active assignment.
-2. Business service layer check: Before creating an assignment, `assetAssignmentRepository.existsByAssetIdAndReturnedAtIsNull(assetId)` verifies no open assignment exists.
-3. Status constraint: The asset's status must be `In Stock`. If already `Assigned`, a `ConflictException (409 CONFLICT)` is thrown.
-4. Atomicity: The assignment creation and asset status transition to `Assigned` are executed in a single `@Transactional` boundary.
-
-### Q2: How do you prevent assigning retired or in-repair assets?
-**Answer**:
-In `AssetService.assignAsset()`, the asset status is evaluated before assignment. If status is `Retired` or `In Repair`, an `InvalidOperationException (400 BAD_REQUEST)` is thrown immediately with a clear explanation message.
-
-### Q3: How is ticket-asset linking validated?
-**Answer**:
-In `TicketAssetValidationService`, when linking an asset to a ticket (or filing a ticket with an asset ID):
-1. The asset ID is checked for existence in the database (`404 NOT_FOUND` if absent).
-2. The asset status is validated: retired assets cannot be linked to active/open tickets (`InvalidOperationException`).
-3. Requesters can see their assigned assets directly and file tickets with pre-linked assets.
