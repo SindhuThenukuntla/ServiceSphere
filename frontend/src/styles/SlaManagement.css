@@ -1,0 +1,475 @@
+
+/* =========================================
+   SLA MANAGEMENT PAGE
+========================================= */
+
+.sla-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  animation: slaFadeIn 0.35s ease-in-out;
+}
+
+@keyframes slaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.sla-page .page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.sla-page .page-heading h2 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #17243a;
+  margin-bottom: 8px;
+}
+
+.sla-page .page-heading p {
+  font-size: 14px;
+  color: #8491a5;
+  line-height: 1.5;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.sla-page .primary-btn,
+.sla-page .secondary-btn,
+.sla-page .edit-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 17px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sla-page .primary-btn {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(37, 99, 235, 0.15);
+}
+
+.sla-page .primary-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.sla-page .primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sla-page .secondary-btn {
+  background: #eef2f7;
+  color: #334155;
+}
+
+.sla-page .secondary-btn:hover {
+  background: #e2e8f0;
+}
+
+.sla-page .edit-btn {
+  background: #e8f0ff;
+  color: #2563eb;
+  padding: 8px 14px;
+}
+
+.sla-page .edit-btn:hover {
+  background: #dbeafe;
+}
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.sla-page .error-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+.sla-page .error-message button {
+  background: transparent;
+  border: none;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+/* =========================================
+   SLA FORM CARD
+========================================= */
+
+.sla-page .sla-form-card {
+  background: #ffffff;
+  border: 1px solid #e9edf3;
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 2px 8px rgba(20, 40, 80, 0.04);
+}
+
+.sla-page .sla-form-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #17243a;
+  margin-bottom: 22px;
+}
+
+/* Form Grid */
+
+.sla-page .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.sla-page .form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.sla-page .form-grid input,
+.sla-page .form-grid select {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #334155;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sla-page .form-grid input:focus,
+.sla-page .form-grid select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.sla-page .form-grid input:disabled,
+.sla-page .form-grid select:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+/* Checkbox */
+
+.sla-page .enabled-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  font-size: 13px;
+  color: #334155;
+}
+
+.sla-page .enabled-field input {
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;
+}
+
+/* Form Actions */
+
+.sla-page .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #edf0f5;
+}
+
+/* =========================================
+   SLA POLICY TABLE CARD
+========================================= */
+
+.sla-page .sla-table-card {
+  background: #ffffff;
+  border: 1px solid #e9edf3;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(20, 40, 80, 0.04);
+  overflow: hidden;
+}
+
+/* Table Heading */
+
+.sla-page .table-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.sla-page .table-heading h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #17243a;
+  margin-bottom: 7px;
+}
+
+.sla-page .table-heading p {
+  font-size: 13px;
+  color: #8491a5;
+}
+
+/* Table Wrapper */
+
+.sla-page .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* SLA Table */
+
+.sla-page .sla-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sla-page .sla-table thead {
+  background: #f7f9fc;
+}
+
+.sla-page .sla-table th {
+  padding: 15px 17px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  border-bottom: 1px solid #e9edf3;
+}
+
+.sla-page .sla-table td {
+  padding: 17px;
+  color: #334155;
+  font-size: 13px;
+  border-bottom: 1px solid #edf0f5;
+  white-space: nowrap;
+}
+
+.sla-page .sla-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.sla-page .sla-table tbody tr:hover {
+  background: #f8faff;
+}
+
+.sla-page .sla-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================================
+   PRIORITY BADGES
+========================================= */
+
+.sla-page .priority-badge {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sla-page .priority-badge.low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.sla-page .priority-badge.medium {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.sla-page .priority-badge.high {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.sla-page .priority-badge.critical {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* =========================================
+   POLICY STATUS BADGES
+========================================= */
+
+.sla-page .status-enabled {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sla-page .status-disabled {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================================
+   LOADING AND EMPTY STATES
+========================================= */
+
+.sla-page .state-message {
+  padding: 45px 20px;
+  text-align: center;
+  color: #8491a5;
+  font-size: 14px;
+}
+
+/* =========================================
+   TICKET SLA MONITORING
+========================================= */
+
+.ticket-sla-section {
+  margin-top: 25px;
+}
+
+.ticket-sla-section .sla-table-card {
+  background: #ffffff;
+  border: 1px solid #e9edf3;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.ticket-sla-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ticket-sla-table th {
+  padding: 15px;
+  background: #f7f9fc;
+  color: #64748b;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.ticket-sla-table td {
+  padding: 16px 15px;
+  border-bottom: 1px solid #edf0f5;
+  font-size: 13px;
+}
+
+/* Ticket SLA Status */
+
+.sla-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sla-status.on-track {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.sla-status.at-risk {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.sla-status.breached {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+  .sla-page .sla-table-card {
+    padding: 18px;
+  }
+
+  .sla-page .form-grid {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sla-page .page-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sla-page .page-heading h2 {
+    font-size: 21px;
+  }
+
+  .sla-page .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sla-page .sla-form-card,
+  .sla-page .sla-table-card {
+    padding: 16px;
+  }
+
+  .sla-page .table-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sla-page .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .sla-page .form-actions button {
+    width: 100%;
+  }
+}
